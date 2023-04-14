@@ -1,5 +1,6 @@
 var somaIdadesFamiliares = 0;
 var contadorCliques = 0;
+var mediaCalculada = false;
 
 function criaElementos() {
 	var divisaoFamiliar = document.getElementById("familiar");
@@ -10,18 +11,29 @@ function criaElementos() {
 		console.log(contadorCliques);
 		var botao = document.createElement("button");
 		var textoBotao = document.createTextNode("Calcular Média");
+		var espaco = document.createElement("br");
+		
 		botao.appendChild(textoBotao);
+		divisaoFamiliar.appendChild(espaco);	
 		divisaoFamiliar.appendChild(botao);	
 
 		botao.onclick = function calculaMedia() {
-			console.log("Botão")
-			var media = somaIdadesFamiliares / contadorCliques;
 
-			var titulo = document.createElement("h3");
-			var resposta = document.createTextNode("A média de idades da sua família é " + media);
-			titulo.appendChild(resposta);
+			if (mediaCalculada == false) {
+				console.log("Botão")
+				var media = somaIdadesFamiliares / contadorCliques;
 
-			divisaoFamiliar.insertBefore(titulo, botao);
+				var titulo = document.createElement("h3");
+				var resposta = document.createTextNode("A média de idades da sua família é " + media);
+				titulo.appendChild(resposta);
+
+				divisaoFamiliar.insertBefore(titulo, botao);
+
+				mediaCalculada = true;
+			} else {
+				alert("Média já calculada!!");
+			}
+			
 		}
 	} else if (contadorCliques  < quantidade) {
 		console.log(contadorCliques);
