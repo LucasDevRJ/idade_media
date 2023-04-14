@@ -3,7 +3,8 @@ var contadorCliques = 0;
 
 function criaElementos() {
 	var divisaoFamiliar = document.getElementById("familiar");
-	var quantidade = document.getElementById("quantidade").value;
+	var campoQuantidade = document.getElementById("quantidade");
+	var quantidade = campoQuantidade.value;
 
 	if (contadorCliques  == quantidade) {
 		console.log(contadorCliques);
