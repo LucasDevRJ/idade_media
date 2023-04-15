@@ -1,9 +1,14 @@
 var somaIdadesFamiliares = 0;
 var contadorCliques = 0;
+var contadorIdadesDigitadas = 0;
 var mediaCalculada = false;
 
 function criaElementos() {
 	var divisaoFamiliar = document.getElementById("familiar");
+	divisaoFamiliar.style.display = "flex";
+	divisaoFamiliar.style.flexDirection = "column";
+	divisaoFamiliar.style.alignItems = "center";
+
 	var campoQuantidade = document.getElementById("quantidade");
 	var quantidade = campoQuantidade.value;
 
@@ -16,6 +21,8 @@ function criaElementos() {
 	} else if (contadorCliques  == quantidade) {
 		contadorCliques++;
 		var botao = document.createElement("button");
+		botao.style.width = "70%"
+
 		var textoBotao = document.createTextNode("Calcular Média");
 		var espaco = document.createElement("br");
 			
@@ -25,7 +32,9 @@ function criaElementos() {
 
 		botao.onclick = function calculaMedia() {
 
-		if (mediaCalculada == false) {
+		if (contadorIdadesDigitadas != contadorCliques-1) {
+			alert("Preencha todas as idades!!");
+		} else if (mediaCalculada == false) {
 			console.log("Botão")
 			var media = somaIdadesFamiliares / contadorCliques;
 
@@ -52,8 +61,19 @@ function criaElementos() {
 
 		campoIdadeFamiliar.onblur = function armazenaIdade() {
 			var idadeFamiliar = campoIdadeFamiliar.value;
-			idadeFamiliar = parseInt(idadeFamiliar);
-			somaIdadesFamiliares += idadeFamiliar;
+
+			if (idadeFamiliar.length == 0) {
+				alert("Digite uma idade!!");
+			} else if (isNaN(idadeFamiliar)) {
+				alert("Digite somente números!!");
+			} else if (idadeFamiliar < 0) {
+				alert("Digite uma idade válida!!")
+			} else {
+				idadeFamiliar = parseInt(idadeFamiliar);
+				somaIdadesFamiliares += idadeFamiliar;
+				contadorIdadesDigitadas++;
+				console.log(contadorIdadesDigitadas);				
+			}
 		}
 		
 		divisaoFamiliar.insertBefore(paragrafo, botao);
