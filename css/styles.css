@@ -9,6 +9,13 @@ p {
 	margin: 10px 0;
 }
 
+input {
+	padding: 5px 10px;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 5px;
+}
+
 button {
 	margin: 20px 0;
 }
