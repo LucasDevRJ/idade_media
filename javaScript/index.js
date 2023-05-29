@@ -32,26 +32,25 @@ function criaElementos() {
 
 		botao.onclick = function calculaMedia() {
 
-		if (contadorIdadesDigitadas != contadorCliques-1) {
-			alert("Preencha todas as idades!!");
-		} else if (mediaCalculada == false) {
-			console.log("Botão")
-			var media = somaIdadesFamiliares / contadorCliques;
+			if (contadorIdadesDigitadas != contadorCliques-1) {
+				alert("Preencha todas as idades!!");
+			} else if (mediaCalculada == false) {
+				//console.log("Botão")
+				var media = somaIdadesFamiliares / quantidade;
 
-			var titulo = document.createElement("h3");
-			var resposta = document.createTextNode("A média de idades da sua família é " + media);
-			titulo.appendChild(resposta);
+				var titulo = document.createElement("h3");
+				var resposta = document.createTextNode("A média de idades da sua família é " + media);
+				titulo.appendChild(resposta);
 
-			divisaoFamiliar.insertBefore(titulo, botao);
+				divisaoFamiliar.insertBefore(titulo, botao);
 
-			mediaCalculada = true;
-		} else {
-			alert("Média já calculada!!");
-		}
-			
+				mediaCalculada = true;
+			} else {
+				alert("Média já calculada!!");
+			}
 		}
 	} else if (contadorCliques  < quantidade) {
-		console.log(contadorCliques);
+		//console.log(contadorCliques);
 		contadorCliques++;
 		var paragrafo = document.createElement("p");
 		var texto = document.createTextNode("Digite a idade do familiar: ");
@@ -72,7 +71,7 @@ function criaElementos() {
 				idadeFamiliar = parseInt(idadeFamiliar);
 				somaIdadesFamiliares += idadeFamiliar;
 				contadorIdadesDigitadas++;
-				console.log(contadorIdadesDigitadas);				
+				//console.log(contadorIdadesDigitadas);				
 			}
 		}
 		
@@ -80,6 +79,6 @@ function criaElementos() {
 		divisaoFamiliar.insertBefore(campoIdadeFamiliar, botao);
 	} else {
 		alert("Não pode mais!!");
-		console.log(contadorCliques);
+		//console.log(contadorCliques);
 	}
 }
