@@ -53,7 +53,7 @@ function criaElementos() {
 		//console.log(contadorCliques);
 		contadorCliques++;
 		var paragrafo = document.createElement("p");
-		var texto = document.createTextNode("Digite a idade do familiar: ");
+		var texto = document.createTextNode("Digite a idade do " + contadorCliques + "° familiar: ");
 		paragrafo.appendChild(texto);
 
 		var campoIdadeFamiliar = document.createElement("input");
