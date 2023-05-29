@@ -6,7 +6,7 @@ body {
 
 .caixa {
 	display: flex;
-    height: 600px;
+	height: 100vh;
     background: linear-gradient(#00FFFF 70%, #E0FFFF);
     justify-content: center;
     align-items: center;
