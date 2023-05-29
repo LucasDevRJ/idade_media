@@ -39,7 +39,7 @@ function criaElementos() {
 				var media = somaIdadesFamiliares / quantidade;
 
 				var titulo = document.createElement("h3");
-				var resposta = document.createTextNode("A média de idades da sua família é " + media);
+				var resposta = document.createTextNode("A média de idades da sua família é " + media.toFixed(2));
 				titulo.appendChild(resposta);
 
 				divisaoFamiliar.insertBefore(titulo, botao);
